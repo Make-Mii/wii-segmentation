@@ -24,7 +24,7 @@ class Segmentator():
     nose=[168,122,188,174,217,209,49,64,98,240,97,141,2,370,326,305,327,294,358,279,429,355,437,343,412,351]
     mouth=[0,267,269,270,409,287,375,321,405,314,17,84,181,91,146,57,61,185,40,39,37]
     face_outline=[10,338,297,332,284,251,389,356,454,323,361,288,397,365,379,378,400,377,152,148,176,149,150,136,172,58,132,93,234,127,162,21,54,103,67,109]
-    key_landmarks=r_eyebrow+l_eyebrow
+    key_landmarks=r_eye+l_eye+r_eyebrow+l_eyebrow+nose+mouth+face_outline
 
 
     def __init__(self,model_path,hair_seg_model_path):
@@ -132,7 +132,7 @@ class Segmentator():
 
 
 
-        """
+        
         for face_landmarks in self.latest_landmarks.face_landmarks:
 
             for idx,landmark in enumerate(face_landmarks):
@@ -146,7 +146,7 @@ class Segmentator():
                     #cv2.putText(frame,text=str(idx),org=(x,y),fontFace=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX,fontScale=0.5,color=(0,0,225),thickness=1,lineType=cv2.LINE_AA)
              
             
-        """
+        
         return frame,combined_canvas,all_masks#,brow_masks,nose_m,mouth_m,face_outline_m
 
 
